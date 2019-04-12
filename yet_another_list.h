@@ -6,9 +6,7 @@
   #define newYAListNode (struct YALIST_NODE*)calloc(1, sizeof(YALIST_NODE))
   #define newYAList (struct YALIST*)calloc(1, sizeof(YALIST))
 
-  #ifndef is_null
-    #define is_null(pointer) (!pointer)
-  #endif // is_null
+  #define is_null(pointer) (!pointer)
 
   #define is_yalist_empty(yet_another_list) is_null(yet_another_list) || is_null(yet_another_list->head)
 
