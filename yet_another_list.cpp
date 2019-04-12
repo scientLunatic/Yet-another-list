@@ -81,7 +81,7 @@ void* yalget(YALIST* l, int index)//find at index and return el
     return (seeker)? seeker->el: NULL;
 }
 
-int lfind(YALIST* l, void* item, int* index)
+int yalfind(YALIST* l, void* item, int* index)
 {
     if(is_null(l->head)) return 0;
     int dump;

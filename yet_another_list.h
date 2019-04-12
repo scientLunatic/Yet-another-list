@@ -53,8 +53,8 @@
   #endif //__cplusplus
 
     #define yalpush(YAList, item) yaladd(YAList, item, 0)
-    #define yalpop(YAList) yaltake(YAList, YAList->length - 1)
-    #define yalenqueue(YAList, item) yaladd(YAList, item, 0)
+    #define yalpop(YAList) yaltake(YAList, 0)
+    #define yalenqueue(YAList, item) yaladd(YAList, item, YAList->length - 1)
     #define yaldequeue(YAList) yaltake(List, 0)
 
   #define for_each_yalist(item, list, iterator) \
