@@ -49,18 +49,18 @@ Fancy list for rushing through all your data structure needs... that other imple
       }
     <i>//access</i>
     yalfind(&plainlist, dynnums, &i);<i>//try to find first int in dynnums on plainlist</i>
-    printf("%d = %d\n", dynnums[0], yalget(&plainlist, i)); <i>//should be equal</i>
+    printf("%d = %d\n", dynnums[0], *(int*)yalget(&plainlist, i)); <i>//should be equal</i>
     yalclear(listpointer);                                  <i>//reset list</i>
     printf("%d\n", yalfind(listpointer, &numbers[0], NULL));<i>//fail finding</i>
     int answer = 42;
     yaledit(&plainlist, 0, &answer);         <i>//change first from dynnums to &answer</i>
     yalpush(listpointer, yalpop(&plainlist));<i>//throw into the other list</i>
-    printf("%d\n", yalget(listpointer, 0));  <i>//lo and behold there it is<sup>(is it?)</sup></i>
+    printf("%d\n", *(int*)yalget(listpointer, 0));  <i>//lo and behold there it is<sup>(is it?)</sup></i>
     <i>//finish</i>
     while(plainlist.length)
         yalpush(listpointer, yalpop(&plainlist));
     while(listpointer->length)
-        printf("%d\n", yalpop(listpointer));
+        printf("%d\n", *(int*)yalpop(listpointer));
     free(listpointer);
     free(dynnums);
 </pre>
