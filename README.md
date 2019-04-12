@@ -38,7 +38,7 @@ Fancy list for rushing through all your data structure needs... that other imple
 <h3>Usage :</h3>
 <pre>
     <i>try not to get lost, I know I would</i>
-    YALIST* listpointer = new_yalist(), plainlist;
+    YALIST* listpointer = new_yalist(), plainlist = {NULL, 0};
     int numbers[10], *dynnums = malloc(10 * sizeof(int));<i>//yes, they will have garbage. The more disorderly the merrier</i>
     int i;
     <i>//adding, indexing, ordering & pointer-reference interchangeability</i>
