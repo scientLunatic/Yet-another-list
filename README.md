@@ -36,31 +36,43 @@ Fancy list for rushing through all your data structure needs... that other imple
                </ul>
              </ul><br>  
 <h3>Usage :</h3>
+
 <pre>
-    <i>try not to get lost, I know I would</i>
     YALIST* listpointer = new_yalist(), plainlist = {NULL, 0};
+    
     int numbers[10], *dynnums = malloc(10 * sizeof(int));<i>//yes, they will have garbage. The more disorderly the merrier</i>
     int i;
+    
+    
     <i>//adding, indexing, ordering & pointer-reference interchangeability</i>
     for(i = 0; i < 10; i++)
       {
         yaladd(listpointer, &numbers[i],  0); <i>//equivalent to push, list becomes inverted in relation to array</i>
         yaladd( &plainlist, dynnums + i, -1); <i>//equivalent to enqueue, list stays relative to memory pointed by "dynnums"</i>
       }
+      
+      
     <i>//access</i>
     yalfind(&plainlist, dynnums, &i);<i>//try to find first int in dynnums on plainlist</i>
     printf("%d = %d\n", dynnums[0], *(int*)yalget(&plainlist, i)); <i>//should be equal</i>
+    
     yalclear(listpointer);                                  <i>//reset list</i>
     printf("%d\n", yalfind(listpointer, &numbers[0], NULL));<i>//fail finding</i>
+    
     int answer = 42;
     yaledit(&plainlist, 0, &answer);         <i>//change first from dynnums to &answer</i>
+    
     yalpush(listpointer, yalpop(&plainlist));<i>//throw into the other list</i>
     printf("%d\n", *(int*)yalget(listpointer, 0));  <i>//lo and behold there it is<sup>(is it?)</sup></i>
+    
+    
     <i>//finish</i>
     while(plainlist.length)
         yalpush(listpointer, yalpop(&plainlist));
+        
     while(listpointer->length)
         printf("%d\n", *(int*)yalpop(listpointer));
+        
     free(listpointer);
     free(dynnums);
-</pre>
+ </pre>
