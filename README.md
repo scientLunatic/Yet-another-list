@@ -37,36 +37,36 @@ Fancy list for rushing through all your data structure needs... that other imple
              </ul><br>  
 <h3>Usage :</h3>
 
-<pre>
+```C
     YALIST* listpointer = new_yalist(), plainlist = {NULL, 0};
     
-    int numbers[10], *dynnums = malloc(10 * sizeof(int));<i>//yes, they will have garbage. The more disorderly the merrier</i>
+    int numbers[10], *dynnums = malloc(10 * sizeof(int));//yes, they will have garbage. The more disorderly the merrier
     int i;
     
     
-    <i>//adding, indexing, ordering & pointer-reference interchangeability</i>
+    //adding, indexing, ordering & pointer-reference interchangeability
     for(i = 0; i < 10; i++)
       {
-        yaladd(listpointer, &numbers[i],  0); <i>//equivalent to push, list becomes inverted in relation to array</i>
-        yaladd( &plainlist, dynnums + i, -1); <i>//equivalent to enqueue, list stays relative to memory pointed by "dynnums"</i>
+        yaladd(listpointer, &numbers[i],  0); //equivalent to push, list becomes inverted in relation to array
+        yaladd( &plainlist, dynnums + i, -1); //equivalent to enqueue, list stays relative to memory pointed by "dynnums"
       }
       
       
-    <i>//access</i>
-    yalfind(&plainlist, dynnums, &i);<i>//try to find first int in dynnums on plainlist</i>
-    printf("%d = %d\n", dynnums[0], *(int*)yalget(&plainlist, i)); <i>//should be equal</i>
+    //access
+    yalfind(&plainlist, dynnums, &i);//try to find first int in dynnums on plainlist
+    printf("%d = %d\n", dynnums[0], *(int*)yalget(&plainlist, i)); //should be equal
     
-    yalclear(listpointer);                                  <i>//reset list</i>
-    printf("%d\n", yalfind(listpointer, &numbers[0], NULL));<i>//fail finding</i>
+    yalclear(listpointer);                                  //reset list
+    printf("%d\n", yalfind(listpointer, &numbers[0], NULL));//fail finding
     
     int answer = 42;
-    yaledit(&plainlist, 0, &answer);         <i>//change first from dynnums to &answer</i>
+    yaledit(&plainlist, 0, &answer);         //change first from dynnums to &answer
     
-    yalpush(listpointer, yalpop(&plainlist));<i>//throw into the other list</i>
-    printf("%d\n", *(int*)yalget(listpointer, 0));  <i>//lo and behold there it is<sup>(is it?)</sup></i>
+    yalpush(listpointer, yalpop(&plainlist));//throw into the other list
+    printf("%d\n", *(int*)yalget(listpointer, 0));  //lo and behold there it is (is it?)
     
     
-    <i>//finish</i>
+    //finish
     while(plainlist.length)
         yalpush(listpointer, yalpop(&plainlist));
         
@@ -75,4 +75,4 @@ Fancy list for rushing through all your data structure needs... that other imple
         
     free(listpointer);
     free(dynnums);
- </pre>
+ ```
